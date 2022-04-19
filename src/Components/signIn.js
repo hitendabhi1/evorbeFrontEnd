@@ -15,11 +15,17 @@ function SignIn() {
 
   const handleEvent = (email, password) => {
     signIn(email, password).then((result) => {
-        console.log(result);
-      if(JSON.parse(result).token){
-        setAuth(JSON.parse(result).token);
-        setSessionCookie(JSON.parse(result).token);
-        setSession(JSON.parse(result).token);
+        let data = JSON.parse(result).data;
+        let {token, user_id} = data
+        
+      if(token){
+        let user = {
+          token,
+          userId:user_id
+        }
+        setAuth(token);
+        setSessionCookie(user);
+        setSession(user);
       }
     });
   };
