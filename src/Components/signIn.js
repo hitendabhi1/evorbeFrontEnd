@@ -15,18 +15,21 @@ function SignIn() {
 
   const handleEvent = (email, password) => {
     signIn(email, password).then((result) => {
-        let data = JSON.parse(result).data;
-        let {token, user_id} = data
-        
-      if(token){
-        let user = {
-          token,
-          userId:user_id
-        }
-        setAuth(token);
-        setSessionCookie(user);
-        setSession(user);
-      }
+
+      console.log(result);
+
+      // let data = JSON.parse(result).data;
+      // let {token, user_id} = data
+
+      // if(token){
+      //   let user = {
+      //     token,
+      //     userId:user_id
+      //   }
+      //   setAuth(token);
+      //   setSessionCookie(user);
+      //   setSession(user);
+      // }
     });
   };
 

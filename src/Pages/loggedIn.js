@@ -4,12 +4,16 @@ import LogOut from "../Components/logOut";
 
 import { UserContext } from "../Utilities/context";
 
+
+// components
+import UserName from "../Components/userName";
+
 function LoginPage() {
   const {session} = useContext(UserContext);
 
   return (
     <>
-      <h1>You are now logged In</h1>
+      <UserName/>
       <LogOut/>
     </>
   );

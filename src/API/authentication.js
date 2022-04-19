@@ -33,30 +33,27 @@ export const registerUser = async (email, username, password) => {
 };
 
 export const signIn = async (email, password) => {
-  let data = {
-    data: {
-      email,
-      password
-    },
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  
+  var raw = JSON.stringify({
+    "data": {
+      "email": "test@email.com",
+      "password": "password"
+    }
+  });
+  
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
   };
-
-  let result;
-
-  data = JSON.stringify(data);
-
-  await fetch(
-    `${BASEURL}/auth/signin`,
-    requestOptions("POST", myHeaders, data)
-  )
-    .then((response) => response.text())
-    .then((response) => {
-      result = response;
-    })
-    .catch((error) => {
-      result = error;
-    });
-
-  return result;
+  
+  fetch("https://evorbe.com/evorbeapi/auth/signin", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 };
 
 

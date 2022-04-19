@@ -9,8 +9,6 @@ const ContextProvider = ({children}) => {
     const [auth, setAuth] = useState(false);
     const [session, setSession] = useState(getSessionCookie());
 
-    console.log(session);
-
     return(
         <UserContext.Provider
             value={{auth, setAuth, session, setSession}}
