@@ -19,7 +19,6 @@ function AllShips(props) {
   });
 
 
-
   if (!allShips) {
     return (
       <>
@@ -29,9 +28,10 @@ function AllShips(props) {
   } else {
     return (
       <div>
-        <h1>All Ships</h1>
+        <h1>Change Ship</h1>
         {allShips.map(
           (ship, index) => (
+            props.currentShip.ship_id !== ship.ship_id &&
             (
               <button
                 onClick={() =>

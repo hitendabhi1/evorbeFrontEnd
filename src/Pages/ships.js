@@ -33,7 +33,7 @@ function Ships() {
       <div className="ship-container" style={{display:"flex"}}>
       <CurrentShip currentShip={currentShip} />
 
-      <AllShips setShip={setShip} />
+      <AllShips currentShip={currentShip} setShip={setShip} />
       </div>
     </>
   );

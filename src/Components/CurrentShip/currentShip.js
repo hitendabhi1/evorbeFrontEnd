@@ -13,8 +13,8 @@ function CurrentShip(props) {
   return (
     <div>
       <h1>Current Ship {currentShip.ship_id} - {currentShip.name}</h1>
-      {Object.keys(currentShip).map(ship => (
-        <p>{ship}: {currentShip[ship]}</p>
+      {Object.keys(currentShip).map((ship,index) => (
+        <p key={index}>{ship}: {currentShip[ship]}</p>
       ))}
     </div>
   );
