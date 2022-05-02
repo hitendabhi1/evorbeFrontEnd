@@ -11,12 +11,12 @@ function CurrentShip(props) {
   const {currentShip} = props;
 
   return (
-    <>
+    <div>
       <h1>Current Ship {currentShip.ship_id} - {currentShip.name}</h1>
       {Object.keys(currentShip).map(ship => (
         <p>{ship}: {currentShip[ship]}</p>
       ))}
-    </>
+    </div>
   );
 }
 

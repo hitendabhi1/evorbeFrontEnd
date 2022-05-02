@@ -30,9 +30,11 @@ function Ships() {
   return (
     <>
       <h1>Ship Page</h1>
+      <div className="ship-container" style={{display:"flex"}}>
       <CurrentShip currentShip={currentShip} />
 
       <AllShips setShip={setShip} />
+      </div>
     </>
   );
 }
