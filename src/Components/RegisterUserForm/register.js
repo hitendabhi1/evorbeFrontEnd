@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // functions
-import { registerUser } from "../API/authentication";
+import { registerUser } from "../../API/authentication";
 
 function RegisterComponent() {
   const [email, setEmail] = useState("");

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 // components
-import RegisterComponent from "../Components/register.js";
-import SignIn from "../Components/signIn.js";
+import RegisterComponent from "../Components/RegisterUserForm/register.js";
+import SignIn from "../Components/SignInForm/signIn.js";
 
 function AuthPage(props) {
   return (

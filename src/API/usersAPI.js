@@ -1,19 +1,18 @@
-import {BASEURL, myHeaders} from "./base";
-import {requestOptions} from "./apiUtilities";
+import { BASEURL } from "./base";
+import { requestOptions } from "./apiUtilities";
 
-myHeaders.append("Content-Type", "text/plain");
+export const getUser = async (auth, userId) => {
+  let myHeaders = new Headers();
 
-export const getUserName = async ( auth, userId ) => {
+  myHeaders.append("user-id", `${userId}`);
+  myHeaders.append("token", `${auth}`);
 
-    myHeaders.append("user-id", userId);
-    myHeaders.append("token", auth);
+  let result;
 
-    let result;
-
-    await fetch(
-        `${BASEURL}/users/register`,
-        requestOptions("GET", myHeaders)
-      )
+  await fetch(
+    `${BASEURL}/users/getUser?user_id=${userId}`,
+    requestOptions("GET", myHeaders)
+  )
     .then((response) => response.text())
     .then((response) => {
       result = response;
@@ -22,6 +21,5 @@ export const getUserName = async ( auth, userId ) => {
       result = error;
     });
 
-    return result;
-
-}
+  return result;
+};

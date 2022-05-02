@@ -1,20 +1,16 @@
 import React, { useState, useContext } from "react";
 
-import LogOut from "../Components/logOut";
-
-import { UserContext } from "../Utilities/context";
+import { UserContext } from "../Auth/context";
 
 
 // components
-import UserName from "../Components/userName";
+import UserName from "../Components/UserName/userName";
 
 function LoginPage() {
-  const {session} = useContext(UserContext);
 
   return (
     <>
-      <UserName/>
-      <LogOut/>
+      <h1>Welcome <UserName/></h1>
     </>
   );
 }

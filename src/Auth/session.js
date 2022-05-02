@@ -14,5 +14,4 @@ export const getSessionCookie = () => {
   } else {
     return JSON.parse(sessionCookie);
   }
-
 };
