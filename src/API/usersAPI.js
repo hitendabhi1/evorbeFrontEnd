@@ -2,6 +2,10 @@ import { BASEURL } from "./base";
 import { requestOptions } from "./apiUtilities";
 
 export const getUser = async (auth, userId) => {
+  if (auth === null || userId === null) {
+    return;
+  }
+
   let myHeaders = new Headers();
 
   myHeaders.append("user-id", `${userId}`);
@@ -16,6 +20,7 @@ export const getUser = async (auth, userId) => {
     .then((response) => response.text())
     .then((response) => {
       result = response;
+      console.log("ran");
     })
     .catch((error) => {
       result = error;

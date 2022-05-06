@@ -6,16 +6,31 @@ import { getShip } from "../../API/userShip.js";
 
 // Context
 import { UserContext } from "../../Auth/context";
+import ShipContext from "../../Auth/shipContext.js";
+
+import CurrentWeapons from "../CurrentWeapons/currentWeapons.js";
+import CurrentShields from "../CurrentSheilds/currentShields.js";
 
 function CurrentShip(props) {
-  const {currentShip} = props;
+  console.log(useContext(ShipContext));
+
+  const { currentShip } = useContext(ShipContext);
+  const { ship, items } = currentShip;
 
   return (
     <div>
-      <h1>Current Ship {currentShip.ship_id} - {currentShip.name}</h1>
-      {Object.keys(currentShip).map((ship,index) => (
-        <p key={index}>{ship}: {currentShip[ship]}</p>
-      ))}
+      <h1>
+        Current Ship {ship.ship_id} - {ship.name}
+      </h1>
+      <p>Damage: {ship.damage}</p>
+      <p>Defence: {ship.defence}</p>
+      <CurrentWeapons />
+      <CurrentShields />
+      {/* {Object.keys(ship).map((shipItems, index) => (
+        <p key={index}>
+          {shipItems}: {ship[shipItems]}
+        </p>
+      ))} */}
     </div>
   );
 }

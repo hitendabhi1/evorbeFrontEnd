@@ -7,14 +7,11 @@ import { getUser } from "../API/usersAPI.js";
 const UserContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  const [auth, setAuth] = useState(false);
   const [session, setSession] = useState(getSessionCookie());
   const [user, setUser] = useState(false);
 
-  const getUsers = () => {
+  const getCurrentUser = () => {
     getUser(session.token, session.userId).then((resp) => {
-      //   setUser(JSON.parse(resp).result.data);
-
       if (resp === "User needs to sign in") {
         setUser(false);
         Cookies.remove("session");
@@ -26,10 +23,15 @@ const ContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (session && !user) {
-      getUsers();
+    if (
+      session !== false &&
+      session.token !== null &&
+      session.user_id !== null &&
+      !user
+    ) {
+      getCurrentUser();
     }
-  });
+  }, [session]);
 
   return (
     <UserContext.Provider value={{ session, setSession, user }}>

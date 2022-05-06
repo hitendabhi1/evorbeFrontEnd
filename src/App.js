@@ -35,7 +35,7 @@ function App() {
             <Routes>
               <Route path='/' element={<LoggedIn />} />
               <Route path='/ship' element={<Ships />} />
-              <Route path='/messages' element={<LoggedIn />} />
+              {/* <Route path='/messages' element={<LoggedIn />} /> */}
             </Routes>
           </BrowserRouter>
         </QueryClientProvider>
